@@ -3,14 +3,16 @@ import { useRoute } from 'vue-router'
 import AppNavbar from '../components/layout/AppNavbar.vue'
 import AppFooter from '../components/layout/AppFooter.vue'
 import VersionBadge from '../components/ui/VersionBadge.vue'
+import BackgroundPatterns from '../components/ui/BackgroundPatterns.vue'
 
 const route = useRoute()
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <div class="min-h-screen flex flex-col bg-transparent text-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
+    <BackgroundPatterns />
     <AppNavbar />
-    
+
     <main class="flex-grow pt-20">
       <router-view v-slot="{ Component }">
         <transition
@@ -23,7 +25,7 @@ const route = useRoute()
     </main>
 
     <AppFooter />
-    
+
     <!-- Floating Version Badge -->
     <VersionBadge version="1.0.0" />
   </div>
